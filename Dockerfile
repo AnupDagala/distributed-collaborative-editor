@@ -5,7 +5,7 @@ RUN mvn -B -ntp dependency:go-offline
 COPY src src
 RUN mvn -B -ntp package -DskipTests
 
-FROM eclipse-temurin:21-jre-jammy
+FROM eclipse-temurin:25-jre-jammy
 RUN apt-get update && apt-get install -y --no-install-recommends curl \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd --gid 10001 editor && useradd --uid 10001 --gid editor --no-create-home editor
