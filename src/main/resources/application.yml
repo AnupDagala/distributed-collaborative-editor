@@ -1,0 +1,69 @@
+spring:
+  application:
+    name: collaborative-editor
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/editor}
+    username: ${DATABASE_USER:editor}
+    password: ${DATABASE_PASSWORD}
+    hikari:
+      maximum-pool-size: 12
+      connection-timeout: 3000
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate.jdbc.time_zone: UTC
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD}
+      timeout: 1s
+      connect-timeout: 1s
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+      fail-on-trailing-tokens: true
+server:
+  port: ${PORT:8080}
+  forward-headers-strategy: none
+  max-http-request-header-size: 16KB
+  tomcat:
+    max-swallow-size: 32KB
+    threads:
+      max: 100
+  error:
+    include-message: never
+    include-stacktrace: never
+    include-binding-errors: never
+editor:
+  jwt-secret: ${JWT_SECRET}
+  issuer: collab-editor
+  audience: collab-browser
+  allowed-origins: ${ALLOWED_ORIGINS:http://localhost:5173}
+  snapshot-interval: ${SNAPSHOT_INTERVAL:50}
+  instance-id: ${INSTANCE_ID:${random.uuid}}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+  endpoint:
+    health:
+      show-details: never
+      probes:
+        enabled: true
+springdoc:
+  api-docs:
+    enabled: ${OPENAPI_ENABLED:false}
+  swagger-ui:
+    enabled: ${OPENAPI_ENABLED:false}
+logging:
+  structured:
+    format:
+      console: ecs
+  level:
+    org.springframework.web.socket: WARN
+    org.springframework.security: WARN
+    org.hibernate: WARN

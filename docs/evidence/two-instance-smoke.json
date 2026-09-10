@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "instances": 2,
+  "checks": [
+    "concurrent Unicode insert",
+    "cross-instance delivery",
+    "duplicate acknowledgment",
+    "reconnect replay",
+    "snapshot fallback",
+    "equal persisted states",
+    "viewer denied"
+  ],
+  "sample": {
+    "operations": 128,
+    "elapsedMs": 780.63,
+    "operationsPerSecond": 163.97,
+    "concurrency": 1,
+    "batchSize": 16,
+    "includes": "persistence and snapshot creation; excludes login and setup"
+  }
+}

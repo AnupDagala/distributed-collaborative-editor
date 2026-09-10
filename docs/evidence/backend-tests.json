@@ -1,0 +1,44 @@
+{
+  "integration": [
+    {
+      "suite": "dev.collab.integration.ContainerCollaborationIT",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 17
+    },
+    {
+      "suite": "dev.collab.integration.NativeCollaborationIT",
+      "tests": 17,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "docker": "unavailable; container suite skipped",
+  "source": "Maven Surefire/Failsafe XML from final clean verify",
+  "unit": [
+    {
+      "suite": "dev.collab.crdt.SequenceCrdtTest",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "dev.collab.realtime.RedisNotificationsTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "dev.collab.security.RateLimiterTest",
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "verifiedAt": "2026-09-10T19:38:31.0130220Z"
+}

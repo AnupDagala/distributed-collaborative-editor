@@ -1,0 +1,3 @@
+elements,apply_median_ms,render_median_ms,snapshot_restore_median_ms
+1000,2.523,0.780,4.725
+10000,6.299,1.206,8.538
